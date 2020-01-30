@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float horizontalSpeed = 5f, jumpImpulse=20f;
     public CharacterStates currentState;
 
     // Start is called before the first frame update
@@ -16,6 +17,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         currentState.Execute();
+    }
+    private void FixedUpdate()
+    {
+        currentState.FixedExecute();
     }
     public void ChangeState(CharacterStates newState)
     {
