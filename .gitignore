@@ -58,7 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+<<<<<<< HEAD
+AlemanZuritaSillero/Library/CurrentLayout.dwlt
+=======
 AlemanZuritaSillero/Library/assetDatabase3
 AlemanZuritaSillero/Library/EditorInstance.json
 AlemanZuritaSillero/Temp/UnityLockfile
 AlemanZuritaSillero/Library/shadercompiler-UnityShaderCompiler.exe0.log
+>>>>>>> 6d3f1b92fbc4f2f56e9d9770c6b75695d12c65ff
