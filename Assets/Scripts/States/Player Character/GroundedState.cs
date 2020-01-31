@@ -16,6 +16,15 @@ public class GroundedState : CharacterStates
         spr = player.GetComponent<SpriteRenderer>();
     }
 
+    public override void OnStart()
+    {
+        anim.SetBool("isJumping", false);
+    }
+    public override void OnFinish()
+    {
+        base.OnFinish();
+    }
+
     public override void CheckTransitions()
     {
         RaycastHit2D[] hitResults = new RaycastHit2D[2];
@@ -42,4 +51,6 @@ public class GroundedState : CharacterStates
     {
         rb.velocity = new Vector2(h * player.horizontalSpeed, rb.velocity.y); //luego le meteremos datamodel
     }
+
+
 }
