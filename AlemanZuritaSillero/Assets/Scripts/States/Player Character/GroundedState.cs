@@ -20,6 +20,10 @@ public class GroundedState : CharacterStates
     {
         anim.SetBool("isJumping", false);
     }
+    public override void OnFinish()
+    {
+        base.OnFinish();
+    }
 
     public override void CheckTransitions()
     {
@@ -40,7 +44,7 @@ public class GroundedState : CharacterStates
         anim.SetFloat("absSpeed", Mathf.Abs(h));
 
         if (Input.GetButtonDown("Jump"))
-            rb.AddForce(new Vector2(0, player.jumpImpulse), ForceMode2D.Impulse); //de nuevo, cambiaremos esto con el datamodel
+            rb.AddForce(new Vector2(0, player.pm.jumpImpulse), ForceMode2D.Impulse); //de nuevo, cambiaremos esto con el datamodel
 
         if (h < 0)
             spr.flipX = true;
@@ -57,7 +61,7 @@ public class GroundedState : CharacterStates
 
     public override void FixedExecute()
     {
-        rb.velocity = new Vector2(h * player.horizontalSpeed, rb.velocity.y); //luego le meteremos datamodel
+        rb.velocity = new Vector2(h * player.pm.horizontalSpeed, rb.velocity.y); //luego le meteremos datamodel
     }
 
 

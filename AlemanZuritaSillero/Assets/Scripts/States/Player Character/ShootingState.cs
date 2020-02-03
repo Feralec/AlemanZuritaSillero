@@ -11,8 +11,8 @@ public class ShootingState : GroundedState
     }
     public override void OnStart()
     {
-        anim.SetTrigger("shoot");
-        exitTime = player.shootExitTime;
+        anim.SetBool("isShooting",true);
+        exitTime = player.pm.shootExitTime;
         base.OnStart();
     }
     public override void Execute()
@@ -23,5 +23,10 @@ public class ShootingState : GroundedState
         {
             player.ChangeState(new GroundedState(player));
         }
+    }
+    public override void OnFinish()
+    {
+        anim.SetBool("isShooting", false);
+        base.OnFinish();
     }
 }

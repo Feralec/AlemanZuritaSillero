@@ -37,6 +37,6 @@ public class JumpingState : CharacterStates
 
     public override void FixedExecute()
     {
-        rb.velocity = new Vector2(h * player.horizontalSpeed*player.jumpingHorizontalLimiter, rb.velocity.y);
+        rb.velocity = new Vector2(h * player.pm.horizontalSpeed*player.pm.jumpingHorizontalLimiter, rb.velocity.y);
     }
 }

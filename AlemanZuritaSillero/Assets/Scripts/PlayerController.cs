@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalSpeed = 5f, jumpImpulse=7f,jumpingHorizontalLimiter = 0.5f,shootExitTime=0.3f;
+    //public float horizontalSpeed = 5f, jumpImpulse=7f,jumpingHorizontalLimiter = 0.5f,shootExitTime=0.3f;
+    public PlayerModel pm;
     public CharacterStates currentState;
 
     // Start is called before the first frame update

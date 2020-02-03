@@ -114,9 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f0f17b1c50f5b4dbaae7694e1b1ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 5
-  jumpImpulse: 7
-  jumpingHorizontalLimiter: 0.5
+  pm: {fileID: 11400000, guid: 60650e6483c87fd41a0943072da781c9, type: 2}
 --- !u!50 &54205026219167554
 Rigidbody2D:
   serializedVersion: 4
