@@ -16,6 +16,11 @@ public class GroundedState : CharacterStates
         spr = player.GetComponent<SpriteRenderer>();
     }
 
+    public override void OnStart()
+    {
+        anim.SetBool("isJumping", false);
+    }
+
     public override void CheckTransitions()
     {
         RaycastHit2D[] hitResults = new RaycastHit2D[2];
@@ -24,6 +29,12 @@ public class GroundedState : CharacterStates
     }
 
     public override void Execute()
+    {
+        IWantShootToInheritThis();
+        IDontWantShootToInheritThis();
+    }
+
+    public void IWantShootToInheritThis()
     {
         h = Input.GetAxis("Horizontal");
         anim.SetFloat("absSpeed", Mathf.Abs(h));
@@ -35,11 +46,19 @@ public class GroundedState : CharacterStates
             spr.flipX = true;
         else if (h > 0)
             spr.flipX = false;
-            
+    }
+    public void IDontWantShootToInheritThis()
+    {
+        if (Input.GetAxis("Fire1") > 0)
+        {
+            player.ChangeState(new ShootingState(player));
+        }
     }
 
     public override void FixedExecute()
     {
         rb.velocity = new Vector2(h * player.horizontalSpeed, rb.velocity.y); //luego le meteremos datamodel
     }
+
+
 }

@@ -13,19 +13,30 @@ public class JumpingState : CharacterStates
         rb = player.GetComponent<Rigidbody2D>();
         anim = player.GetComponent<Animator>();
     }
+    public override void OnStart()
+    {
+        anim.SetBool("isJumping", true);
+    }
+    public override void OnFinish()
+    {
+        base.OnFinish();
+    }
 
     public override void CheckTransitions()
     {
-        throw new System.NotImplementedException();
+        RaycastHit2D[] hitResults = new RaycastHit2D[2];
+        if (rb.Cast(new Vector2(0, -1), hitResults, 0.1f) > 0)
+            player.ChangeState(new GroundedState(player));
     }
 
     public override void Execute()
     {
-        throw new System.NotImplementedException();
+        h = Input.GetAxis("Horizontal");
+
     }
 
     public override void FixedExecute()
     {
-        throw new System.NotImplementedException();
+        rb.velocity = new Vector2(h * player.horizontalSpeed*player.jumpingHorizontalLimiter, rb.velocity.y);
     }
 }

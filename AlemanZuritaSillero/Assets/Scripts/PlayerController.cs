@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalSpeed = 5f, jumpImpulse=20f;
+    public float horizontalSpeed = 5f, jumpImpulse=7f,jumpingHorizontalLimiter = 0.5f,shootExitTime=0.3f;
     public CharacterStates currentState;
 
     // Start is called before the first frame update
@@ -29,7 +29,12 @@ public class PlayerController : MonoBehaviour
             if (currentState != null)
                 currentState.OnFinish();
             currentState = newState;
-            currentState.OnFinish();
+            currentState.OnStart();
         }
+    }
+
+    private void LateUpdate()
+    {
+        currentState.CheckTransitions();
     }
 }

@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 5
   jumpImpulse: 7
+  jumpingHorizontalLimiter: 0.5
 --- !u!50 &54205026219167554
 Rigidbody2D:
   serializedVersion: 4
