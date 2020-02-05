@@ -53,3 +53,6 @@ TagManager:
   - name: Water
     uniqueID: 1840125131
     locked: 0
+  - name: Interface
+    uniqueID: 4253657147
+    locked: 0
